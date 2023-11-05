@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		920AFAF81659C5E600167E80 /* ESXGPS150TimeDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 920AFAF61659C5E600167E80 /* ESXGPS150TimeDriver.cpp */; };
+		920AFAF91659C5E600167E80 /* ESXGPS150TimeDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 920AFAF71659C5E600167E80 /* ESXGPS150TimeDriver.hpp */; };
+		9229940D12EFB01F00B82B13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9229940C12EFB01F00B82B13 /* QuartzCore.framework */; };
+		9229942212F09E6A00B82B13 /* ESCalendar_Cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9229941E12F09E6A00B82B13 /* ESCalendar_Cocoa.mm */; };
+		9229942312F09E6A00B82B13 /* ESCalendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9229941F12F09E6A00B82B13 /* ESCalendar.cpp */; };
+		9229942412F09E6A00B82B13 /* ESCalendar.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9229942012F09E6A00B82B13 /* ESCalendar.hpp */; };
+		9229942512F09E6A00B82B13 /* ESCalendarPvt.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 9229942112F09E6A00B82B13 /* ESCalendarPvt.hpp */; };
+		923C2CEE12F5F35300E9CE1D /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 923C2CE712F5F35300E9CE1D /* config.h */; };
+		923C2CEF12F5F35300E9CE1D /* ntp_fp.h in Headers */ = {isa = PBXBuildFile; fileRef = 923C2CE812F5F35300E9CE1D /* ntp_fp.h */; };
+		923C2CF012F5F35300E9CE1D /* ntp_machine.h in Headers */ = {isa = PBXBuildFile; fileRef = 923C2CE912F5F35300E9CE1D /* ntp_machine.h */; };
+		923C2CF112F5F35300E9CE1D /* ntp_rfc2553.h in Headers */ = {isa = PBXBuildFile; fileRef = 923C2CEA12F5F35300E9CE1D /* ntp_rfc2553.h */; };
+		923C2CF212F5F35300E9CE1D /* ntp_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 923C2CEB12F5F35300E9CE1D /* ntp_types.h */; };
+		923C2CF312F5F35300E9CE1D /* ntp_unixtime.h in Headers */ = {isa = PBXBuildFile; fileRef = 923C2CEC12F5F35300E9CE1D /* ntp_unixtime.h */; };
+		923C2CF412F5F35300E9CE1D /* ntp.h in Headers */ = {isa = PBXBuildFile; fileRef = 923C2CED12F5F35300E9CE1D /* ntp.h */; };
+		923C2DE712F7B3A600E9CE1D /* ESTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 923C2DE512F7B3A600E9CE1D /* ESTimer.cpp */; };
+		923C2DE812F7B3A600E9CE1D /* ESTimer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 923C2DE612F7B3A600E9CE1D /* ESTimer.hpp */; };
+		924077A512E5365B00D7CBDC /* ESNTPDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9240779D12E5365B00D7CBDC /* ESNTPDriver.cpp */; };
+		924077A812E5365B00D7CBDC /* ESSystemTimeDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 924077A012E5365B00D7CBDC /* ESSystemTimeDriver.cpp */; };
+		924077A912E5365B00D7CBDC /* ESSystemTimeDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 924077A112E5365B00D7CBDC /* ESSystemTimeDriver.hpp */; };
+		924077AA12E5365B00D7CBDC /* ESTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 924077A212E5365B00D7CBDC /* ESTime.cpp */; };
+		924077AB12E5365B00D7CBDC /* ESTime.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 924077A312E5365B00D7CBDC /* ESTime.hpp */; };
+		924077AC12E5365B00D7CBDC /* ESTimeSourceDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 924077A412E5365B00D7CBDC /* ESTimeSourceDriver.hpp */; };
+		924077B012E53AF300D7CBDC /* ESTimeInl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 924077AF12E53AF300D7CBDC /* ESTimeInl.hpp */; };
+		924EAF6E15EC47460060BCA2 /* ESWatchTime_Cocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 924EAF6D15EC47460060BCA2 /* ESWatchTime_Cocoa.mm */; };
+		9253710B1659D6CB009E52D5 /* ESXGPS150TimeDriver_iOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9253710A1659D6CB009E52D5 /* ESXGPS150TimeDriver_iOS.mm */; };
+		925546C612F1EB77002C66AF /* ESNTPHostNames.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 925546C412F1EB77002C66AF /* ESNTPHostNames.cpp */; };
+		925546C712F1EB77002C66AF /* ESNTPHostNames.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 925546C512F1EB77002C66AF /* ESNTPHostNames.hpp */; };
+		927EF9AB1308BBB500BC415E /* ESLeapSecond.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927EF9A91308BBB500BC415E /* ESLeapSecond.cpp */; };
+		929C6FAE139A98FD005C081F /* ESPoolHostSurvey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 929C6FAC139A98FD005C081F /* ESPoolHostSurvey.cpp */; };
+		929C6FAF139A98FD005C081F /* ESPoolHostSurvey.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 929C6FAD139A98FD005C081F /* ESPoolHostSurvey.hpp */; };
+		92AA374812ECBF3F00B1EFD3 /* ESSystemTimeBase_iOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92AA374612ECBF3F00B1EFD3 /* ESSystemTimeBase_iOS.mm */; };
+		92AA374912ECBF3F00B1EFD3 /* ESTimeSourceDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92AA374712ECBF3F00B1EFD3 /* ESTimeSourceDriver.cpp */; };
+		92C3B2341392C36E00880094 /* ESTimeEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92C3B2321392C36E00880094 /* ESTimeEnvironment.cpp */; };
+		92C3B2351392C36E00880094 /* ESTimeEnvironment.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92C3B2331392C36E00880094 /* ESTimeEnvironment.hpp */; };
+		92C3B2371392C39C00880094 /* ESSystemTimeBase.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92C3B2361392C39C00880094 /* ESSystemTimeBase.hpp */; };
+		92C3B23A13936C1300880094 /* ESWatchTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92C3B23813936C1300880094 /* ESWatchTime.cpp */; };
+		92C3B23B13936C1300880094 /* ESWatchTime.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92C3B23913936C1300880094 /* ESWatchTime.hpp */; };
+		92C48C9A25D89D1E009BB042 /* ESNTPDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92C48C9925D89D1E009BB042 /* ESNTPDriver.hpp */; };
+		92D2CCB913804666005AD424 /* ESLeapSecond.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92D2CCB713804666005AD424 /* ESLeapSecond.hpp */; };
+		92D2CCBA13804666005AD424 /* ESNTPHostReport.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92D2CCB813804666005AD424 /* ESNTPHostReport.hpp */; };
+		92E8E4E0154DC540009C8E6E /* ESFakeTimeDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92E8E4DE154DC540009C8E6E /* ESFakeTimeDriver.cpp */; };
+		92E8E4E1154DC540009C8E6E /* ESFakeTimeDriver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 92E8E4DF154DC540009C8E6E /* ESFakeTimeDriver.hpp */; };
+		AA747D9F0F9514B9006C5449 /* ESTime_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ESTime_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9277E6DD12DE7623004115BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92EE000112D779AD0020C878 /* esutil.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = esutil;
+		};
+		9277E72812DE8406004115BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92EE000112D779AD0020C878 /* esutil.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = esutil;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		920AFAF61659C5E600167E80 /* ESXGPS150TimeDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESXGPS150TimeDriver.cpp; path = ../src/ESXGPS150TimeDriver.cpp; sourceTree = "<group>"; };
+		920AFAF71659C5E600167E80 /* ESXGPS150TimeDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESXGPS150TimeDriver.hpp; path = ../src/ESXGPS150TimeDriver.hpp; sourceTree = "<group>"; };
+		9229940C12EFB01F00B82B13 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9229941E12F09E6A00B82B13 /* ESCalendar_Cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ESCalendar_Cocoa.mm; path = ../src/ESCalendar_Cocoa.mm; sourceTree = SOURCE_ROOT; };
+		9229941F12F09E6A00B82B13 /* ESCalendar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESCalendar.cpp; path = ../src/ESCalendar.cpp; sourceTree = SOURCE_ROOT; };
+		9229942012F09E6A00B82B13 /* ESCalendar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESCalendar.hpp; path = ../src/ESCalendar.hpp; sourceTree = SOURCE_ROOT; };
+		9229942112F09E6A00B82B13 /* ESCalendarPvt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESCalendarPvt.hpp; path = ../src/ESCalendarPvt.hpp; sourceTree = SOURCE_ROOT; };
+		923C2CE712F5F35300E9CE1D /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = ../src/config.h; sourceTree = SOURCE_ROOT; };
+		923C2CE812F5F35300E9CE1D /* ntp_fp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ntp_fp.h; path = ../src/ntp_fp.h; sourceTree = SOURCE_ROOT; };
+		923C2CE912F5F35300E9CE1D /* ntp_machine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ntp_machine.h; path = ../src/ntp_machine.h; sourceTree = SOURCE_ROOT; };
+		923C2CEA12F5F35300E9CE1D /* ntp_rfc2553.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ntp_rfc2553.h; path = ../src/ntp_rfc2553.h; sourceTree = SOURCE_ROOT; };
+		923C2CEB12F5F35300E9CE1D /* ntp_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ntp_types.h; path = ../src/ntp_types.h; sourceTree = SOURCE_ROOT; };
+		923C2CEC12F5F35300E9CE1D /* ntp_unixtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ntp_unixtime.h; path = ../src/ntp_unixtime.h; sourceTree = SOURCE_ROOT; };
+		923C2CED12F5F35300E9CE1D /* ntp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ntp.h; path = ../src/ntp.h; sourceTree = SOURCE_ROOT; };
+		923C2DE512F7B3A600E9CE1D /* ESTimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESTimer.cpp; path = ../src/ESTimer.cpp; sourceTree = SOURCE_ROOT; };
+		923C2DE612F7B3A600E9CE1D /* ESTimer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESTimer.hpp; path = ../src/ESTimer.hpp; sourceTree = SOURCE_ROOT; };
+		9240779D12E5365B00D7CBDC /* ESNTPDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESNTPDriver.cpp; path = ../src/ESNTPDriver.cpp; sourceTree = SOURCE_ROOT; };
+		924077A012E5365B00D7CBDC /* ESSystemTimeDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESSystemTimeDriver.cpp; path = ../src/ESSystemTimeDriver.cpp; sourceTree = SOURCE_ROOT; };
+		924077A112E5365B00D7CBDC /* ESSystemTimeDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESSystemTimeDriver.hpp; path = ../src/ESSystemTimeDriver.hpp; sourceTree = SOURCE_ROOT; };
+		924077A212E5365B00D7CBDC /* ESTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESTime.cpp; path = ../src/ESTime.cpp; sourceTree = SOURCE_ROOT; };
+		924077A312E5365B00D7CBDC /* ESTime.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESTime.hpp; path = ../src/ESTime.hpp; sourceTree = SOURCE_ROOT; };
+		924077A412E5365B00D7CBDC /* ESTimeSourceDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESTimeSourceDriver.hpp; path = ../src/ESTimeSourceDriver.hpp; sourceTree = SOURCE_ROOT; };
+		924077AF12E53AF300D7CBDC /* ESTimeInl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESTimeInl.hpp; path = ../src/ESTimeInl.hpp; sourceTree = SOURCE_ROOT; };
+		924EAF6D15EC47460060BCA2 /* ESWatchTime_Cocoa.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ESWatchTime_Cocoa.mm; path = ../src/ESWatchTime_Cocoa.mm; sourceTree = "<group>"; };
+		9253710A1659D6CB009E52D5 /* ESXGPS150TimeDriver_iOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ESXGPS150TimeDriver_iOS.mm; path = ../src/ESXGPS150TimeDriver_iOS.mm; sourceTree = "<group>"; };
+		925546C412F1EB77002C66AF /* ESNTPHostNames.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESNTPHostNames.cpp; path = ../src/ESNTPHostNames.cpp; sourceTree = SOURCE_ROOT; };
+		925546C512F1EB77002C66AF /* ESNTPHostNames.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESNTPHostNames.hpp; path = ../src/ESNTPHostNames.hpp; sourceTree = SOURCE_ROOT; };
+		927EF9A91308BBB500BC415E /* ESLeapSecond.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESLeapSecond.cpp; path = ../src/ESLeapSecond.cpp; sourceTree = SOURCE_ROOT; };
+		929C6FAC139A98FD005C081F /* ESPoolHostSurvey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESPoolHostSurvey.cpp; path = ../src/ESPoolHostSurvey.cpp; sourceTree = "<group>"; };
+		929C6FAD139A98FD005C081F /* ESPoolHostSurvey.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESPoolHostSurvey.hpp; path = ../src/ESPoolHostSurvey.hpp; sourceTree = "<group>"; };
+		92AA374612ECBF3F00B1EFD3 /* ESSystemTimeBase_iOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ESSystemTimeBase_iOS.mm; path = ../src/ESSystemTimeBase_iOS.mm; sourceTree = SOURCE_ROOT; };
+		92AA374712ECBF3F00B1EFD3 /* ESTimeSourceDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESTimeSourceDriver.cpp; path = ../src/ESTimeSourceDriver.cpp; sourceTree = SOURCE_ROOT; };
+		92C3B2321392C36E00880094 /* ESTimeEnvironment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESTimeEnvironment.cpp; path = ../src/ESTimeEnvironment.cpp; sourceTree = "<group>"; };
+		92C3B2331392C36E00880094 /* ESTimeEnvironment.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESTimeEnvironment.hpp; path = ../src/ESTimeEnvironment.hpp; sourceTree = "<group>"; };
+		92C3B2361392C39C00880094 /* ESSystemTimeBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESSystemTimeBase.hpp; path = ../src/ESSystemTimeBase.hpp; sourceTree = "<group>"; };
+		92C3B23813936C1300880094 /* ESWatchTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESWatchTime.cpp; path = ../src/ESWatchTime.cpp; sourceTree = "<group>"; };
+		92C3B23913936C1300880094 /* ESWatchTime.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESWatchTime.hpp; path = ../src/ESWatchTime.hpp; sourceTree = "<group>"; };
+		92C48C9925D89D1E009BB042 /* ESNTPDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESNTPDriver.hpp; path = ../src/ESNTPDriver.hpp; sourceTree = "<group>"; };
+		92D2CCB713804666005AD424 /* ESLeapSecond.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESLeapSecond.hpp; path = ../src/ESLeapSecond.hpp; sourceTree = "<group>"; };
+		92D2CCB813804666005AD424 /* ESNTPHostReport.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESNTPHostReport.hpp; path = ../src/ESNTPHostReport.hpp; sourceTree = "<group>"; };
+		92E8E4DE154DC540009C8E6E /* ESFakeTimeDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESFakeTimeDriver.cpp; path = ../src/ESFakeTimeDriver.cpp; sourceTree = "<group>"; };
+		92E8E4DF154DC540009C8E6E /* ESFakeTimeDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESFakeTimeDriver.hpp; path = ../src/ESFakeTimeDriver.hpp; sourceTree = "<group>"; };
+		92EE000112D779AD0020C878 /* esutil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = esutil.xcodeproj; path = ../deps/esutil/ios/esutil.xcodeproj; sourceTree = SOURCE_ROOT; };
+		AA747D9E0F9514B9006C5449 /* ESTime_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTime_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libESTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libESTime.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				9229940D12EFB01F00B82B13 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libESTime.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* ESTime */ = {
+			isa = PBXGroup;
+			children = (
+				92EE000112D779AD0020C878 /* esutil.xcodeproj */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				923C2CF512F5F36900E9CE1D /* NTP includes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = ESTime;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				9229940C12EFB01F00B82B13 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				924077A312E5365B00D7CBDC /* ESTime.hpp */,
+				924077AF12E53AF300D7CBDC /* ESTimeInl.hpp */,
+				924077A212E5365B00D7CBDC /* ESTime.cpp */,
+				923C2DE612F7B3A600E9CE1D /* ESTimer.hpp */,
+				923C2DE512F7B3A600E9CE1D /* ESTimer.cpp */,
+				92C3B2331392C36E00880094 /* ESTimeEnvironment.hpp */,
+				92C3B2321392C36E00880094 /* ESTimeEnvironment.cpp */,
+				924077A412E5365B00D7CBDC /* ESTimeSourceDriver.hpp */,
+				92AA374712ECBF3F00B1EFD3 /* ESTimeSourceDriver.cpp */,
+				92C3B2361392C39C00880094 /* ESSystemTimeBase.hpp */,
+				92AA374612ECBF3F00B1EFD3 /* ESSystemTimeBase_iOS.mm */,
+				927EF9A91308BBB500BC415E /* ESLeapSecond.cpp */,
+				92C48C9925D89D1E009BB042 /* ESNTPDriver.hpp */,
+				9240779D12E5365B00D7CBDC /* ESNTPDriver.cpp */,
+				92D2CCB813804666005AD424 /* ESNTPHostReport.hpp */,
+				925546C512F1EB77002C66AF /* ESNTPHostNames.hpp */,
+				925546C412F1EB77002C66AF /* ESNTPHostNames.cpp */,
+				924077A112E5365B00D7CBDC /* ESSystemTimeDriver.hpp */,
+				924077A012E5365B00D7CBDC /* ESSystemTimeDriver.cpp */,
+				92D2CCB713804666005AD424 /* ESLeapSecond.hpp */,
+				9229941F12F09E6A00B82B13 /* ESCalendar.cpp */,
+				9229942012F09E6A00B82B13 /* ESCalendar.hpp */,
+				9229942112F09E6A00B82B13 /* ESCalendarPvt.hpp */,
+				9229941E12F09E6A00B82B13 /* ESCalendar_Cocoa.mm */,
+				92C3B23913936C1300880094 /* ESWatchTime.hpp */,
+				92C3B23813936C1300880094 /* ESWatchTime.cpp */,
+				924EAF6D15EC47460060BCA2 /* ESWatchTime_Cocoa.mm */,
+				92E8E4DE154DC540009C8E6E /* ESFakeTimeDriver.cpp */,
+				92E8E4DF154DC540009C8E6E /* ESFakeTimeDriver.hpp */,
+				920AFAF71659C5E600167E80 /* ESXGPS150TimeDriver.hpp */,
+				920AFAF61659C5E600167E80 /* ESXGPS150TimeDriver.cpp */,
+				9253710A1659D6CB009E52D5 /* ESXGPS150TimeDriver_iOS.mm */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				929C6FAD139A98FD005C081F /* ESPoolHostSurvey.hpp */,
+				929C6FAC139A98FD005C081F /* ESPoolHostSurvey.cpp */,
+				AA747D9E0F9514B9006C5449 /* ESTime_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		923C2CF512F5F36900E9CE1D /* NTP includes */ = {
+			isa = PBXGroup;
+			children = (
+				923C2CED12F5F35300E9CE1D /* ntp.h */,
+				923C2CE812F5F35300E9CE1D /* ntp_fp.h */,
+				923C2CE912F5F35300E9CE1D /* ntp_machine.h */,
+				923C2CEA12F5F35300E9CE1D /* ntp_rfc2553.h */,
+				923C2CEB12F5F35300E9CE1D /* ntp_types.h */,
+				923C2CEC12F5F35300E9CE1D /* ntp_unixtime.h */,
+				923C2CE712F5F35300E9CE1D /* config.h */,
+			);
+			name = "NTP includes";
+			sourceTree = "<group>";
+		};
+		9277E6DA12DE7623004115BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9277E6DE12DE7623004115BA /* libesutil.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* ESTime_Prefix.pch in Headers */,
+				924077A912E5365B00D7CBDC /* ESSystemTimeDriver.hpp in Headers */,
+				924077AB12E5365B00D7CBDC /* ESTime.hpp in Headers */,
+				924077AC12E5365B00D7CBDC /* ESTimeSourceDriver.hpp in Headers */,
+				924077B012E53AF300D7CBDC /* ESTimeInl.hpp in Headers */,
+				92C48C9A25D89D1E009BB042 /* ESNTPDriver.hpp in Headers */,
+				9229942412F09E6A00B82B13 /* ESCalendar.hpp in Headers */,
+				9229942512F09E6A00B82B13 /* ESCalendarPvt.hpp in Headers */,
+				925546C712F1EB77002C66AF /* ESNTPHostNames.hpp in Headers */,
+				923C2CEE12F5F35300E9CE1D /* config.h in Headers */,
+				923C2CEF12F5F35300E9CE1D /* ntp_fp.h in Headers */,
+				923C2CF012F5F35300E9CE1D /* ntp_machine.h in Headers */,
+				923C2CF112F5F35300E9CE1D /* ntp_rfc2553.h in Headers */,
+				923C2CF212F5F35300E9CE1D /* ntp_types.h in Headers */,
+				923C2CF312F5F35300E9CE1D /* ntp_unixtime.h in Headers */,
+				923C2CF412F5F35300E9CE1D /* ntp.h in Headers */,
+				923C2DE812F7B3A600E9CE1D /* ESTimer.hpp in Headers */,
+				92D2CCB913804666005AD424 /* ESLeapSecond.hpp in Headers */,
+				92D2CCBA13804666005AD424 /* ESNTPHostReport.hpp in Headers */,
+				92C3B2351392C36E00880094 /* ESTimeEnvironment.hpp in Headers */,
+				92C3B2371392C39C00880094 /* ESSystemTimeBase.hpp in Headers */,
+				92C3B23B13936C1300880094 /* ESWatchTime.hpp in Headers */,
+				929C6FAF139A98FD005C081F /* ESPoolHostSurvey.hpp in Headers */,
+				92E8E4E1154DC540009C8E6E /* ESFakeTimeDriver.hpp in Headers */,
+				920AFAF91659C5E600167E80 /* ESXGPS150TimeDriver.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* ESTime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ESTime" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9277E72912DE8406004115BA /* PBXTargetDependency */,
+			);
+			name = ESTime;
+			productName = ESTime;
+			productReference = D2AAC07E0554694100DB518D /* libESTime.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ESTime" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				Base,
+				en,
+				ja,
+				fr,
+				de,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* ESTime */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9277E6DA12DE7623004115BA /* Products */;
+					ProjectRef = 92EE000112D779AD0020C878 /* esutil.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* ESTime */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9277E6DE12DE7623004115BA /* libesutil.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libesutil.a;
+			remoteRef = 9277E6DD12DE7623004115BA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				924077A512E5365B00D7CBDC /* ESNTPDriver.cpp in Sources */,
+				924077A812E5365B00D7CBDC /* ESSystemTimeDriver.cpp in Sources */,
+				924077AA12E5365B00D7CBDC /* ESTime.cpp in Sources */,
+				92AA374812ECBF3F00B1EFD3 /* ESSystemTimeBase_iOS.mm in Sources */,
+				92AA374912ECBF3F00B1EFD3 /* ESTimeSourceDriver.cpp in Sources */,
+				9229942212F09E6A00B82B13 /* ESCalendar_Cocoa.mm in Sources */,
+				9229942312F09E6A00B82B13 /* ESCalendar.cpp in Sources */,
+				925546C612F1EB77002C66AF /* ESNTPHostNames.cpp in Sources */,
+				923C2DE712F7B3A600E9CE1D /* ESTimer.cpp in Sources */,
+				927EF9AB1308BBB500BC415E /* ESLeapSecond.cpp in Sources */,
+				92C3B2341392C36E00880094 /* ESTimeEnvironment.cpp in Sources */,
+				92C3B23A13936C1300880094 /* ESWatchTime.cpp in Sources */,
+				929C6FAE139A98FD005C081F /* ESPoolHostSurvey.cpp in Sources */,
+				92E8E4E0154DC540009C8E6E /* ESFakeTimeDriver.cpp in Sources */,
+				924EAF6E15EC47460060BCA2 /* ESWatchTime_Cocoa.mm in Sources */,
+				920AFAF81659C5E600167E80 /* ESXGPS150TimeDriver.cpp in Sources */,
+				9253710B1659D6CB009E52D5 /* ESXGPS150TimeDriver_iOS.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9277E72912DE8406004115BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = esutil;
+			targetProxy = 9277E72812DE8406004115BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ESTime.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ESTime_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					ES_NTP,
+					"ES_IOS=1",
+					"ES_ANDROID=0",
+				);
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = ESTime;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/ESTime.dst;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ESTime_Prefix.pch;
+				GCC_THUMB_SUPPORT = NO;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = ESTime;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					"ES_IOS=1",
+					HAVE_CONFIG_H,
+					ES_NTP,
+					"ES_IOS=1",
+					"ES_ANDROID=0",
+				);
+				GCC_THUMB_SUPPORT = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					.,
+					../deps/esutil/src,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRIPFLAGS = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					"ES_IOS=1",
+					HAVE_CONFIG_H,
+					ES_NTP,
+					"ES_IOS=1",
+					"ES_ANDROID=0",
+				);
+				GCC_THUMB_SUPPORT = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					.,
+					../deps/esutil/src,
+					../deps/esutil/calendar,
+					/usr/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRIPFLAGS = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ESTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ESTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

@@ -1,0 +1,19 @@
+//
+// Prefix header for all source files of the 'estime' target in the 'estime' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+#include <string>
+#include <stdlib.h>
+
+#include "ESPlatform.h"
+
+#include "ESTime.hpp"
+#include "ESCalendar.hpp"
+#include "ESSystemTimeBase.hpp"
+#include "ESTimeEnvironment.hpp"
+#include "ESTimer.hpp"
+#include "ESWatchTime.hpp"

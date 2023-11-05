@@ -1,0 +1,108 @@
+The first version of Emerald Timestamp using the new infrastructure
+(v2.0) generated a problem report that in low-bandwidth networks (the
+specific report was for non-3G in England), syncing either took
+forever or failed altogether.
+
+Some investigation traced the problem to the new infrastructure's
+approach to resending packets on timeout.  The design philosophy here
+appeared to be to assume that the packets would eventually return, but
+in this particular case at least, packets would get lost (as is
+perfectly legal with UDP).  It is also the case that in that scenario,
+the RTT was fairly high, thus increasing the unlikelihood of
+satisfying the synchronization threshold.
+
+So there are two problems to solve.  The first is to resend more
+frequently, and the second is to see how to lower the threshold
+without affecting our ability to get a more accurate sync when the
+network *is* capable of delivering it.  In both cases there is a
+design conflict between what we want on fast reliable networks and
+what we want on slow unreliable networks.
+
+Resend Timeout
+==============
+
+The obvious thing to do here is simply to reduce the timeout time so
+that we take advantage of more hosts.  But we want to take care in a
+couple of ways:
+ - We want to preserve, to the extent we can, the original intent of
+   reducing pool host traffic, when the problem is that the packets are
+   just taking a long time and not getting lost.
+ - Similarly, we want to avoid a situation where we resend a packet to
+   the same host (and thus on the same socket), but we get the
+   original packet back -- in that case, neither packet will be
+   accepted as the send times won't match.  We should, perhaps, keep a
+   list of send times that the socket has outstanding for this sync
+   (we can't, to be perfectly legal, ignore the send times, because
+   the packet that is arriving might have been a reaction to a
+   previous send that was on a different time-base reference, because
+   of a lock;nsdate-change;unlock sequence).
+
+
+Lowering the threshold
+======================
+
+Our older ntp implementations made use of the sigma both for
+determining the error and deciding when to stop.  Here's mail I sent
+to Bill about it a few days ago:
+
+- The ET code (if I'm reading it right) will synchronize without
+  regard to RTT if the RTT is less than 4 seconds.  Thus slow RTTs as
+  are perhaps common on non-G3 GSM won't affect ET's ability to sync,
+  so long as the std deviation of the result is OK.  I suspect this
+  makes ET less conservative than the current version of ETS, though
+  this wasn't a goal when I set out to change the behavior.
+
+- The old ETS code (and the current EC/EG code)
+    -  presume that the error is *solely* the result of RTT, rather than a combination of RTT and the error components the server itself specifies
+
+    - report new sync values ignoring the existing sync value, thus
+       allowing ETS to "go green" any time the "cumulative"
+       (intersected) RTT goes below 0.4 (error of 0.2) for ETS, and
+       4.0 for EC/EG, even if the synchronization continues (this
+       appears to be a bug in EC/EG, probably introduced when I
+       switched to the ETS version in 2010, as it makes EC/EG go green
+       with an error of 2 seconds).
+
+    - decide they're done when the sigma goes below 0.333
+          - for EC/EG, without regard to the RTT
+          - for ETS 1.x, so long as the *mean* RTT is less than 0.2
+
+- The new ETS code
+    - presumes that the error is the sum of RTT/2, server rootdispersion*1.25, server rootdelay/2, and server precision
+
+    - will not report a new sync value if the current sync error bars
+      extend (on either side of the current sync midpoint) to
+      encompass the old sync value, on the theory that if we haven't
+      gotten to "good" yet, the old value may well be better than the
+      new value.  But if the sync value hasn't changed, this will
+      always be the case, so we won't actually report a sync value
+      until we are completely done, thus lowering the *effective*
+      threshold for "green" to be the threshold for "done syncing"
+      (from 0.2 to 0.16) (this explains why Martin sees ??? while
+      syncing even though we are actually refining)
+
+    - decides it's done when the error (RTT/2+disper*1.25+delay/2+precision) goes below 0.2.
+
+So it appears that the ETS code 
+    1.  is more conservative about what errors mean (the reported error for any given packet will be larger due to the server components, for any given packet)
+    2.  will not report in-progress skews that would have caused ETS to go green
+    3.  ignores sigma when deciding to quit (this actually makes ETS less conservative, so isn't the current problem)
+
+I'd guess that the problem that Martin is seeing is a combination of
+1) and 2).  Not sure how to address #1; we could simply raise the
+threshold for green, given its new more conservative meaning.  That
+seems somewhat reasonable, though I'm not sure exactly how much to
+raise it by.  I would think 0.25 is probably OK?
+
+#2 is a bit trickier.  It was motivated by the case where the user is
+ in an extremely unreliable network where RTTs are on the order of
+ 5-10 seconds; in such a case we want to accept the packet (in case
+ the device is off by considerably more than that), but we don't want
+ to override a previous sync value which might, say, have had an error
+ bound of 0.1s.  This approach also avoids a bunch of small tweaks in
+ favor of one large one when we actually know the new value is better
+ the old one.  But I think that in the case where now we are failing
+ to report because the old sync value is within the error bounds,
+ report the sync anyway if the error bound is small enough that it
+ would cause a threshold change (i.e., if it is below 0.2), and only
+ do this once per synchronization.

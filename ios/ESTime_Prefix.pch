@@ -1,0 +1,18 @@
+//
+// Prefix header for all source files of the 'CocoaTouchStaticLibrary' target in the 'CocoaTouchStaticLibrary' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
+
+#include <string>
+
+#include "ESPlatform.h"
+
+#include "ESTime.hpp"
+#include "ESCalendar.hpp"
+#include "ESSystemTimeBase.hpp"
+#include "ESTimeEnvironment.hpp"
+#include "ESTimer.hpp"
+#include "ESWatchTime.hpp"

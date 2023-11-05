@@ -1,0 +1,137 @@
+Thoughts about doing "the right thing" with leap seconds during the actual leap-second transition:
+
+For positive leap seconds (the kind we've had up to this point,
+wherein UTC inserts an extra second (:59, :60, :00)), we really want
+two kinds of behavior, depending on whether we're a digital or analog
+clock, since analog clocks can't display :60.5, for example:
+1) Digital clocks should show :59, :60, :00 (with add-on fractions in each case)
+2) Analog clocks shoud hold just shy of :00 for one second (if they go
+to :00, then the higher-order digits minute, hour, day, month, year
+will all change, and this is inconsistent with the intent of leap secods).
+
+For negative leap seconds (not seen yet), we jump immediately from :58.99999...
+to :00, skipping :59 altogether.  In this case both analog and digital clocks
+want the same answer.
+
+This raises the question of what ESTime::currentTime() should actually
+return.  I believe that we need to return the analog-clock answer,
+because it is a UTC value and UTC can't return anything else, but that
+we also should provide an interface that can be used to increase the
+seconds digit by the given amount during the transition; analog clocks
+can ignore this second API.
+
+  NSTimeInterval leapSecondActiveCorrection()
+
+can return a number between 0 and 1, which is the amount by which the
+seconds "digit" (and its fraction) is to be increased.  So if it is
+0.2 seconds past a positive leapSecond, then currentTime() will return
+2011/06/30 23:59:59.99999, and leapSecondActiveCorrection() will
+return 0.2; the digital client is expected to add that 0.2 seconds to
+the 59.999999 to get 60.199999 (probably we should add the microsecond
+into the active correction so things are precise).
+
+In the implementation of currentTime, we need to very efficiently
+determine whether we are in a period that needs leap-second
+correction, and then reasonably efficiently calculate the correction
+necessary.  We would like to do this in a manner that encapsulates the
+knowledge of leap seconds as tightly as possible, preferably in ESTime
+itself.
+
+ESTime is built on a time base which cannot represent leap seconds, so
+there is no way to supply a time base to ESTime which handles leap
+seconds in such a way that ESTime doesn't have to worry about them;
+during the transition time, ESTime *must* at a minimum check to see if
+the current leap-second offset has changed; otherwise, since it is
+merely applying a constant offset to the *continuous* system time, it
+cannot properly hold or jump during the transition.  Note that the
+*absolute* system time might or might not properly hold or jump during
+the transition, but since we're not looking at it except after aSTCs
+it doesn't matter.  And if it's a positive leap second, we don't want
+digital time to hold, we want to be able to display the extra digit.
+
+So as long as ESTime has to handle it, we would like to keep all of
+the code there as well.  My initial straw man is to incorporate the
+corrected analog value into what is called "NTP time" in the
+conventions, and thus change (for example) skew and continuousSkew
+*continuously* during the positive leap-second transition, notifying
+of skewChanged only after the second is complete.  Note that this does
+require changing the performance characteristics of certain
+skew-reporting APIs; for example, ESTime::skew() used to be a very
+simple answer returning a constant (through a virtual function) plus
+another constant, but with this approach it would need to also call
+into the kernel to determine the current continuous time.  Further,
+since the skew() will ask for the (continuous) system time some small
+amount of time after we ask for the raw time, the values won't be
+matched (though this is probably insignificant, and the raw time will
+be constant if the skew is changing).  And anyone who stores the skew
+value somewhere will probably be incorrect in this interval if they
+consult their stored value (so don't do that).
+
+We can avoid the double kernel call by avoiding the call to skew(),
+which could be done by restructuring client code or providing an
+interface that returns *both* the current time and the skew.
+
+So.  In summary:
+  currentTime() incorporates leap seconds, and holds at 59.99999
+  leapSecondActiveCorrection() is zero normally but ramps from 0 to 1
+     for digital clients to display the proper digits from 60.0 to
+     60.9999
+  skew() and continuousSkew() will incorporate the active correction
+     and will need to obtain the current continuous time to calculate
+     it
+
+** Sidebar **
+
+Note that this implementation, which encapsulates leap seconds into
+the time base, does not allow simulation, since only the *current*
+time is aware of leap seconds.  An alternative would be to place
+knowledge in ESWatchTime.  Or perhaps it would be better if
+ESWatchTime, which currently uses NTP time as 'x' in its y=mx+b
+calculation, should instead use continuous time; then when asking for
+the sync (a component of 'b'), it could *pass in* the continuous time
+for which it is asking for the sync.
+
+That is, ESWatchTime could handle the transition itself.  It could
+either do this all of the time, thus relieving ESTime from the
+responsibility (and, unfortunately, also depriving other ESTime
+clients from the benefits of a leap-second-aware ESTime
+implementation) or it could somehow work in tandem with ESTime.  Note
+that if we do the proposal described above, wherein ESTime holds
+during the *actual* leap second, then an ESWatchTime implementation
+which depends on that corrected time and is not aware of this hold
+which is displaying *another* time at the time of the leap second
+(admittedly an extremely rare occurrence) would not do the right
+thing.
+
+The current ESWatchTime implementation depends on continuous time,
+which has the advantage that it doesn't jump at cell-tower changes.
+If we separate the contiuousSkew used for this calculation from the
+continuousSkew which includes the leap-second delta, then we can let
+ESWT do its own leap-second handling, either in real time or when
+simulating.
+
+It never occurred to me to wonder (or I've forgotten) what happens
+when ESWT is running at zoom=1 but at an offset from the real time and
+a cell-tower change comes in.
+
+[ side note: ESWT should just use ESTime::currentContinuousTime() and
+  ESTime::currentTime() to avoid hole when the system time is changed
+  but we haven't gotten an aSTC yet ]
+
+ESTime::currentTimeCorrectedForLeapSeconds()
+ESTime::currentLeapSecondCorrection()
+ESTime::currentTimeUncorrectedForLeapSeconds()
+
+It would probably be a Very Good Thing if we could eliminate all
+references to skew outside of the estime library, apart from
+reporting.  I think we can start by changing ESWatchTime to properly
+use the new ESTime functions directly rather than computing using skew.
+
+**** End sidebar
+
+There remains the question of how to calculate both the active
+correction and the proper leap-second-aware UTC post midnight.  My
+strawman here is to record, at each NTP synchronization (when the skew
+changes) and continuous time reset (when the offset changes) the
+continuous time at which the next leap second, if any are known, is to
+occur.
