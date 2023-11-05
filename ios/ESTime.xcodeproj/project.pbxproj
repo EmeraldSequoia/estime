@@ -54,18 +54,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9277E6DD12DE7623004115BA /* PBXContainerItemProxy */ = {
+		923AF95C2AF8412800D448E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 92EE000112D779AD0020C878 /* esutil.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = esutil;
-		};
-		9277E72812DE8406004115BA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 92EE000112D779AD0020C878 /* esutil.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = esutil;
 		};
 /* End PBXContainerItemProxy section */
@@ -113,7 +106,7 @@
 		92D2CCB813804666005AD424 /* ESNTPHostReport.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESNTPHostReport.hpp; path = ../src/ESNTPHostReport.hpp; sourceTree = "<group>"; };
 		92E8E4DE154DC540009C8E6E /* ESFakeTimeDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ESFakeTimeDriver.cpp; path = ../src/ESFakeTimeDriver.cpp; sourceTree = "<group>"; };
 		92E8E4DF154DC540009C8E6E /* ESFakeTimeDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ESFakeTimeDriver.hpp; path = ../src/ESFakeTimeDriver.hpp; sourceTree = "<group>"; };
-		92EE000112D779AD0020C878 /* esutil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = esutil.xcodeproj; path = ../deps/esutil/ios/esutil.xcodeproj; sourceTree = SOURCE_ROOT; };
+		92EE000112D779AD0020C878 /* esutil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = esutil.xcodeproj; path = ../../esutil/ios/esutil.xcodeproj; sourceTree = SOURCE_ROOT; };
 		AA747D9E0F9514B9006C5449 /* ESTime_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTime_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libESTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libESTime.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +204,14 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		923AF9592AF8412800D448E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				923AF95D2AF8412800D448E4 /* libesutil.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		923C2CF512F5F36900E9CE1D /* NTP includes */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,14 +224,6 @@
 				923C2CE712F5F35300E9CE1D /* config.h */,
 			);
 			name = "NTP includes";
-			sourceTree = "<group>";
-		};
-		9277E6DA12DE7623004115BA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9277E6DE12DE7623004115BA /* libesutil.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +275,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9277E72912DE8406004115BA /* PBXTargetDependency */,
 			);
 			name = ESTime;
 			productName = ESTime;
@@ -313,7 +305,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 9277E6DA12DE7623004115BA /* Products */;
+					ProductGroup = 923AF9592AF8412800D448E4 /* Products */;
 					ProjectRef = 92EE000112D779AD0020C878 /* esutil.xcodeproj */;
 				},
 			);
@@ -325,11 +317,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9277E6DE12DE7623004115BA /* libesutil.a */ = {
+		923AF95D2AF8412800D448E4 /* libesutil.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libesutil.a;
-			remoteRef = 9277E6DD12DE7623004115BA /* PBXContainerItemProxy */;
+			remoteRef = 923AF95C2AF8412800D448E4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -360,14 +352,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9277E72912DE8406004115BA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = esutil;
-			targetProxy = 9277E72812DE8406004115BA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB921F08733DC00010E9CD /* Debug */ = {
@@ -458,7 +442,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					.,
-					../deps/esutil/src,
+					../../esutil/src,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -515,8 +499,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					.,
-					../deps/esutil/src,
-					../deps/esutil/calendar,
+					../../esutil/src,
+					../../esutil/calendar,
 					/usr/include,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
